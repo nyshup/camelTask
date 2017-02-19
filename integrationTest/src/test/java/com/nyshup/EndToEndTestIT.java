@@ -35,7 +35,7 @@ public class EndToEndTestIT {
     @Autowired
     JmsTemplate jmsTemplate;
 
-    @Test(timeout = 1000000)
+    @Test(timeout = 10000)
     public void testMessagePost() throws Exception {
         deleteOutputDirectory();
         Destination destination = ActiveMQDestination.createDestination("serviceQueue", ActiveMQDestination.QUEUE_TYPE);
