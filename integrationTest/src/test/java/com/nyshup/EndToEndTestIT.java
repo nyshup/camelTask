@@ -27,7 +27,7 @@ import static org.junit.Assert.assertTrue;
 @ContextConfiguration(classes = TestConfig.class)
 public class EndToEndTestIT {
 
-    public static final String TEST_BODY = "TEST BODY";
+    public static final String TEST_BODY = "TEST BODY askldfjaslkf~!@#$%^&*(asjfhdlaksdhaksjdfhalks";
     @Value("${output.file.dir}")
     private String testFileDir;
 
@@ -50,7 +50,7 @@ public class EndToEndTestIT {
         assertTrue("Directory should be created", Files.exists(path));
         List<Path> files = Files.list(path).collect(Collectors.toList());
         assertEquals("One file should be created", 1, files.size());
-        assertEquals("TEST BODY", fileToString(files.get(0)));
+        assertEquals(TEST_BODY, fileToString(files.get(0)));
     }
 
     private void deleteOutputDirectory() throws IOException {
